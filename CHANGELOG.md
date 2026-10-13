@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+### Added
+- Added support for Moodle 5.3
+
 ## 5.0.11 - 2026-10-06
 ### Fixed
 - We fixed rendering of a help icon
