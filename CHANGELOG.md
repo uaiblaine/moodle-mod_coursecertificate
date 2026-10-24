@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.0.11+uai.1 - 2026-10-24
+### Added
+- Support for Moodle 5.3 (fork branch MOODLE_503_STABLE, supported = [500, 503])
+
 ## 5.0.11 - 2026-10-06
 ### Fixed
 - We fixed rendering of a help icon
