@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+### Fixed
+- The activity view in the Moodle App failed on Moodle 5.3: its intro was formatted with
+  `external_format_text()`, which throws on 5.3 (port of upstream WPOS-207, moodle-mod_coursecertificate#9)
+### Changed
+- Web service classes use `core_external` instead of the deprecated `lib/externallib.php`
+- Tests: PHPUnit attributes; `course_delete_module()` replaced where 5.2+ deprecates it
+
 ## 5.0.11+uai.1 - 2026-10-24
 ### Added
 - Support for Moodle 5.3 (fork branch MOODLE_503_STABLE, supported = [500, 503])
