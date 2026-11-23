@@ -42,6 +42,28 @@ require_once($CFG->libdir . '/gradelib.php');
  */
 class helper {
     /**
+     * The template the activity issues, for a user allowed to preview it.
+     *
+     * @param \cm_info $cm the course module of a coursecertificate activity
+     * @return template
+     * @throws \required_capability_exception when the user cannot preview the certificate
+     * @throws \moodle_exception when the activity has no template, or the template is gone
+     */
+    public static function get_preview_template(\cm_info $cm): template {
+        global $DB;
+
+        $context = \context_module::instance($cm->id);
+        if (!permission::can_preview($context)) {
+            throw new \required_capability_exception($context, 'mod/coursecertificate:viewreport', 'nopermissions', '');
+        }
+        $templateid = (int) $DB->get_field('coursecertificate', 'template', ['id' => $cm->instance], MUST_EXIST);
+        if (!$templateid || !$DB->record_exists('tool_certificate_templates', ['id' => $templateid])) {
+            throw new \moodle_exception('notemplateselected', 'coursecertificate');
+        }
+        return template::instance($templateid);
+    }
+
+    /**
      * Gets users who meet access restrictionss and had not been issued.
      *
      * @param \stdClass $coursecertificate

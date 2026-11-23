@@ -76,6 +76,7 @@ $string['open'] = 'Open';
 $string['page-mod-coursecertificate-x'] = 'Any course certificate module page';
 $string['pluginadministration'] = 'Course certificate administration';
 $string['pluginname'] = 'Course certificate';
+$string['previewcertificate'] = 'Preview certificate';
 $string['previewcoursefullname'] = 'Course full name';
 $string['previewcourseshortname'] = 'Course short name';
 $string['privacy:metadata'] = 'The course certificate activity does not store personal data.';

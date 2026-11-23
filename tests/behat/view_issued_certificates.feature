@@ -89,6 +89,7 @@ Feature: View the certificates that have been issued
     And I log in as "teacher1"
     And I am on "Course 1" course homepage
     And I follow "My certificate"
+    And "Preview certificate" "link" should exist
     # Ensure consistent sort by email address.
     And I click on "Email address" "link" in the "generaltable" "table"
     And the following should exist in the "generaltable" table:
