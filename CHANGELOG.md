@@ -8,6 +8,10 @@
 - Web service classes use `core_external` instead of the deprecated `lib/externallib.php`
 - Tests: PHPUnit attributes; `course_delete_module()` replaced where 5.2+ deprecates it
 
+## 5.0.12 - 2026-11-10
+### Added
+- Added support for Moodle 5.3
+
 ## 5.0.11+uai.1 - 2026-10-24
 ### Added
 - Support for Moodle 5.3 (fork branch MOODLE_503_STABLE, supported = [500, 503])
