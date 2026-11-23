@@ -1,1 +1,2 @@
 amd/build/** -diff
+/lang/pt_br export-ignore

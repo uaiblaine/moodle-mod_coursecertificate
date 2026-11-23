@@ -5,6 +5,7 @@
 - "Preview certificate" button on the activity page, for users who are shown the activity's report
   (`mod/coursecertificate:viewreport` and a certificate capability in the course): it opens the template as a PDF with placeholder values, which
   until now needed `tool/certificate:manage` and the template editor
+- Brazilian Portuguese text for the button (`lang/pt_br`, kept out of release packages)
 ### Fixed
 - The activity view in the Moodle App failed on Moodle 5.3: its intro was formatted with
   `external_format_text()`, which throws on 5.3 (port of upstream WPOS-207, moodle-mod_coursecertificate#9)
