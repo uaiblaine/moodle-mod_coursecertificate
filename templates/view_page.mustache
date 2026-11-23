@@ -29,7 +29,8 @@
         "showhiddenwarning": false,
         "shownoautosendinfo": false,
         "table": "<table></table>",
-        "canregenerate": true
+        "canregenerate": true,
+        "previewurl": "https://example.com/mod/coursecertificate/preview.php?id=1"
     }
 }}
 <div data-region="mod_coursecertificate_view">
@@ -46,6 +47,11 @@
         {{/notemplateselected}}
     {{/studentview}}
     {{^studentview}}
+        {{#previewurl}}
+            <div class="mb-3" data-region="preview-certificate">
+                <a class="btn btn-secondary" href="{{previewurl}}" target="_blank">{{#str}} previewcertificate, coursecertificate {{/str}}</a>
+            </div>
+        {{/previewurl}}
         {{#showautomaticsend}}
             <div data-region="automaticsend-alert" class="position-relative w-100">
                 {{> coursecertificate/automaticsend_alert}}

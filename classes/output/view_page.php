@@ -58,6 +58,9 @@ class view_page implements renderable, templatable {
     /** @var bool $canviewreport */
     protected $canviewreport;
 
+    /** @var bool $canpreview */
+    protected $canpreview;
+
     /** @var bool $canreceiveissues */
     protected $canreceiveissues;
 
@@ -89,6 +92,7 @@ class view_page implements renderable, templatable {
         $this->certificate = $DB->get_record('coursecertificate', ['id' => $this->cm->instance], '*', MUST_EXIST);
         $this->canviewreport = permission::can_view_report($context);
         $this->canmanage = permission::can_manage($context);
+        $this->canpreview = permission::can_preview($context);
         $this->canviewall = permission::can_view_all_issues($course->id);
         $this->canreceiveissues = permission::can_receive_issues($context);
 
@@ -155,6 +159,9 @@ class view_page implements renderable, templatable {
         $data['issuecode'] = $this->issuecode;
         if ($this->issuecode) {
             $data['viewurl'] = \tool_certificate\template::view_url($data['issuecode'])->out(false);
+        }
+        if (!$data['studentview'] && !$data['notemplateselected'] && $this->canpreview) {
+            $data['previewurl'] = (new \moodle_url('/mod/coursecertificate/preview.php', ['id' => $this->cm->id]))->out(false);
         }
 
         return $data;

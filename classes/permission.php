@@ -56,6 +56,22 @@ class permission {
     }
 
     /**
+     * If a user can preview the certificate the activity issues.
+     *
+     * The preview shows the template with placeholder values, so it goes to whoever is shown the
+     * activity's report: the report capability here and, as in
+     * {@see \tool_certificate\reportbuilder\local\systemreports\issues::can_view()}, a certificate
+     * capability in the course. Managing the template itself stays with tool_certificate.
+     *
+     * @param \context_module $context
+     * @return bool
+     */
+    public static function can_preview(\context_module $context): bool {
+        return self::can_view_report($context)
+            && \tool_certificate\permission::can_view_templates_in_context($context->get_course_context());
+    }
+
+    /**
      * If a user can verify template issues.
      *
      * @return bool
